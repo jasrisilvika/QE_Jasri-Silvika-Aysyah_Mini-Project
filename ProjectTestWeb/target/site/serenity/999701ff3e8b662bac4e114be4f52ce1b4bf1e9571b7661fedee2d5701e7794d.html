@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Detail","type":"feature","href":"999701ff3e8b662bac4e114be4f52ce1b4bf1e9571b7661fedee2d5701e7794d.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e4 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                levels: 10,
+                showTags: true,
+                expandIcon: "bi bi-journal-plus",
+                collapseIcon: "bi bi-journal-minus",
+                emptyIcon: "bi bi-journal"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+
+
+                    > <span class="truncate-40">Detail</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 17-05-2022 17:54</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+
+                                    <div class="col-sm-12">
+                                        <span>
+                                            <h2><i class="bi bi-book"></i> Feature: Detail</h2>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                As an user<br />
+I want to know detail product<br />
+So that I can buy product that I want
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="bi bi-journal-text"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="bi bi-speedometer"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+
+                                                <!-- REQUIREMENTS PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
+                                                    </div>
+
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <!--- TOC --->
+                                                <div id="toc">
+                                                    <h3>Overview</h3>
+                                                    <table class="table" id="toc-table">
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#b5ee021450e9eefad32b7a937349394b860afaf8c9c91e09fec2f09db9538c37"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario Outline: Open detail product
+                                                                                    </a>
+                                                                                        (4 examples)
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                    </table>
+                                                </div>
+                                                <!--- END OF TOC --->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                    <h3>Scenarios</h3>
+
+                                                        <a name="911e0b89-878c-4b53-a6a8-726008fb881a"></a>
+                                                        <p class="rule-tags inline-tag">
+                                                        </p>
+
+
+                                                            <div class="scenario-docs card" id="b5ee021450e9eefad32b7a937349394b860afaf8c9c91e09fec2f09db9538c37">
+                                                                <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                                    <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html"
+                                                                               title="View test results">Scenario Outline: Open detail product</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                        </span>
+
+                                                                        <span class="scenario-result-icon">
+                                                                    
+
+                                                                                <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given I am on homepage</p>
+                                                                        <p>When I get detail in card {product}</p>
+                                                                        <p>And I click detail button {product}</p>
+                                                                        <p>Then I validate the the detail product {product}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>product</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>11</td><td><a href='57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html#beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a></td></tr>
+<tr><td>24</td><td><a href='57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html#beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a></td></tr>
+<tr><td>30</td><td><a href='57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html#beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a></td></tr>
+<tr><td>1</td><td><a href='57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html#beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+                                                <!-- TEST RESULT PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                                    </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
+                                                <!-- Severity bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="severityChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
+
+                                                <!-- Duration bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="durationChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="bi bi-gear"></i> Automated Tests</h3>
+
+                                                    <table class="scenario-result-table table"
+                                                           id="scenario-results">
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="test-name-column">Scenario</th>
+                                                            <th>Steps</th>
+                                                            <th>Started</th>
+                                                            <th>Duration</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="scenario-result SUCCESS">
+                                                                <td>
+                                                                        <a href="57936ba63b97a5539f9dea0e2ef86ed36b588d661e14f32615dfcd2efd94aecd.html">Open detail product</a>
+                                                                        (4 examples)
+                                                                </td>
+                                                                <td>4</td>
+                                                                <td>17:54:20</td>
+                                                                <td>30s 327ms</td>
+                                                                <td>
+                                                                        <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                            style="display:none">SUCCESS</span>
+                                                                                                                                    </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="bi bi-hand-index-thumb"></i> Manual Tests</h3>
+
+                                                    No manual tests were recorded
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="version">Serenity BDD version 3.2.1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Chart data -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const outcomeChartCtx = document.getElementById('resultChart');
+
+        // Options define for display value on top of bars
+        const outcomeDetailsReports = [
+            { title: 'Passing Scenarios', link: "d6319b5055affa437e172e4fbf012336de71b61565681856db56f8bada1cfd0c.html" },
+            { title: 'Pending Scenarios', link: "1ed30d7153d814c0009b3c6102ec52c69ce92eb01e158cec045c4be357b21643.html" },
+            { title: 'Ignored Scenarios', link: "c118263c5d3e8f5ec6cfdf80b3523d8a06b0cb81fefbf862abb67d7f248600b1.html" },
+            { title: 'Skipped Scenarios', link: "7cef45ea4f41fde8bfa947c47b6cfc421cb45c851f54e7e53f3973e46c878cab.html" },
+            { title: 'Aborted Scenarios',  link: "980cf9be493ad0fc71a27a975e9f13f843f873548a4958bfe7e4e6492d66e80a.html"},
+            { title: 'Failed Scenarios', link: "1f8f6ff7eec438ece6f4138521c93c2ffb71653c22ca4e3a49da5b3f2fc5bf00.html"  },
+            { title: 'Broken Scenarios', link: "ae18f77a1a4a79181d2ce5fd0c1a4c9c04e6b12af56d5a7830605cefd43b768b.html"    },
+            { title: 'Compromised Scenarios',  link: "8099342d81a7173ad409c6603dab3905a8941d92fc58225394e9c67c084a4666.html" },
+        ]
+        const outcomeData = {
+            labels: ['Passing Scenarios', 'Pending Scenarios', 'Ignored Scenarios', 'Skipped Scenarios', 'Aborted Scenarios', 'Failed Scenarios', 'Broken Scenarios', 'Compromised Scenarios','Undefined Scenarios'],
+            datasets: [{
+                label: 'Test Results',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 4}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const outcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const outcomeChart = new Chart(outcomeChartCtx, {
+            type: 'doughnut',
+            data: outcomeData,
+            options: outcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function clickHandler(click) {
+            const points = outcomeChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(outcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        outcomeChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END PIE CHART -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const requirementsChartCtx = document.getElementById('requirementChart');
+
+        // Options define for display value on top of bars
+        const requirementsOutcomeDetailsReports = [
+            { title: 'Passing Scenarios', link: "d6319b5055affa437e172e4fbf012336de71b61565681856db56f8bada1cfd0c.html" },
+            { title: 'Pending Scenarios', link: "1ed30d7153d814c0009b3c6102ec52c69ce92eb01e158cec045c4be357b21643.html" },
+            { title: 'Ignored Scenarios', link: "c118263c5d3e8f5ec6cfdf80b3523d8a06b0cb81fefbf862abb67d7f248600b1.html" },
+            { title: 'Skipped Scenarios', link: "7cef45ea4f41fde8bfa947c47b6cfc421cb45c851f54e7e53f3973e46c878cab.html" },
+            { title: 'Aborted Scenarios',  link: "980cf9be493ad0fc71a27a975e9f13f843f873548a4958bfe7e4e6492d66e80a.html"},
+            { title: 'Failed Scenarios', link: "1f8f6ff7eec438ece6f4138521c93c2ffb71653c22ca4e3a49da5b3f2fc5bf00.html"  },
+            { title: 'Broken Scenarios', link: "ae18f77a1a4a79181d2ce5fd0c1a4c9c04e6b12af56d5a7830605cefd43b768b.html"    },
+            { title: 'Compromised Scenarios',  link: "8099342d81a7173ad409c6603dab3905a8941d92fc58225394e9c67c084a4666.html" },
+            { title: 'Undefined Scenarios',  link: "" },
+        ]
+        const requirementsOutcomeData = {
+            labels: ['Passing Scenarios', 'Pending Scenarios', 'Ignored Scenarios', 'Skipped Scenarios', 'Aborted Scenarios', 'Failed Scenarios', 'Broken Scenarios', 'Compromised Scenarios','Undefined Scenarios'],
+            datasets: [{
+                label: 'Feature Coverage',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 4}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const requirementsOutcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const requirementsChart = new Chart(requirementsChartCtx, {
+            type: 'doughnut',
+            data: requirementsOutcomeData,
+            options: requirementsOutcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function reqsClickHandler(click) {
+            const points = requirementsChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length && requirementsOutcomeDetailsReports[firstPoint.index].link) {
+                const firstPoint = points[0];
+                window.open(requirementsOutcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        requirementsChartCtx.onclick = reqsClickHandler;
+    </script>
+    <!-- END PIE CHART -->
+
+    <!-- SUMMARY BAR CHART -->
+    <script>
+
+        // The Severity bar chart
+        const severityChartCtx = document.getElementById('severityChart');
+
+        // Options define for display value on top of bars
+
+        const severityDetailsReports = [
+            { title: 'Passing Scenarios', link: "d6319b5055affa437e172e4fbf012336de71b61565681856db56f8bada1cfd0c.html" },
+            { title: 'Pending Scenarios', link: "1ed30d7153d814c0009b3c6102ec52c69ce92eb01e158cec045c4be357b21643.html" },
+            { title: 'Ignored Scenarios', link: "c118263c5d3e8f5ec6cfdf80b3523d8a06b0cb81fefbf862abb67d7f248600b1.html" },
+            { title: 'Skipped Scenarios', link: "7cef45ea4f41fde8bfa947c47b6cfc421cb45c851f54e7e53f3973e46c878cab.html" },
+            { title: 'Aborted Scenarios',  link: "980cf9be493ad0fc71a27a975e9f13f843f873548a4958bfe7e4e6492d66e80a.html"},
+            { title: 'Failed Scenarios', link: "1f8f6ff7eec438ece6f4138521c93c2ffb71653c22ca4e3a49da5b3f2fc5bf00.html"  },
+            { title: 'Broken Scenarios', link: "ae18f77a1a4a79181d2ce5fd0c1a4c9c04e6b12af56d5a7830605cefd43b768b.html"    },
+            { title: 'Compromised Scenarios',  link: "8099342d81a7173ad409c6603dab3905a8941d92fc58225394e9c67c084a4666.html" },
+        ]
+        const severityData = {
+            labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
+            datasets: [
+                {
+                    label: 'Automated',
+                    data: [4,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Manual',
+                    data: [0,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.25)','rgba(165, 199, 238, 0.25)','rgba(168, 168, 168, 0.25)','rgba(238, 224, 152, 0.375)','rgba(255, 153, 102, 0.25)','rgba(255, 22, 49, 0.25)','rgba(255, 97, 8, 0.25)','rgba(255, 104, 255, 0.25)','rgba(83, 50, 168, 0.25)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+
+            ]
+        }
+        const severityOptions = {
+            responsive: true,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value === 0) {
+                            return '';
+                        } else {
+                            return value;
+                        }
+                    },
+                }
+            }
+        }
+        const severityChart = new Chart(severityChartCtx, {
+            type: 'bar',
+            data: severityData,
+            options: severityOptions
+        });
+
+        function clickHandler(click) {
+            const points = severityChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(severityDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        severityChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END SUMMARY CHART -->
+
+    <!-- DURATION CHART -->
+    <script>
+
+        // Options define for display value on top of bars
+        const durationDetailsReports = [
+                {title: "Under 1 second", link: "cb1122bc16efcdc3fe0a4cb16b7db13fcef3d84f64cec04d006aad437e6d202a.html"},
+                {title: "1 to 10 seconds", link: "75d30b654a19b2a2c4a48806eab5fac3a34a36de718860c5767740d25aac3d20.html"},
+                {title: "10 to 30 seconds", link: "c3569866b6b5b5811a3b4041668bc4515a24ac7a5b4e52e9e979eeb3ff006ecf.html"},
+                {title: "30 to 60 seconds", link: "70e7a39d1c5274f3688aeab93112f924162223e9a28ab20f11191dcb10f61d10.html"},
+                {title: "1 to 2 minutes", link: "017bfe8c3a45ab2a7c00291eb92dd09ca19563e45aa8b83ee8b37e3d9b6f323d.html"},
+                {title: "2 to 5 minutes", link: "c9a66e45cd71f38be7aa834cf5026eb03d92db887e2a8a22628866b7ccc4ef07.html"},
+                {title: "5 to 10 minutes", link: "7b7d8b6e759a1c1488e1156f5f37c19606f097567f51d411531ce627445d9788.html"},
+                {title: "10 minutes or over", link: "33429386e275eee11a4a2f773100cb71c85770dfb07ea28ebb1971c7f2c0918d.html"},
+        ]
+        // The Severity bar chart
+        const durationChartCtx = document.getElementById('durationChart');
+
+        // Options define for display value on top of bars
+
+        const durationData = {
+            labels: ['Under 1 second','1 to 10 seconds','10 to 30 seconds','30 to 60 seconds','1 to 2 minutes','2 to 5 minutes','5 to 10 minutes','10 minutes or over'],
+            datasets: [{
+                label: 'Number of tests per duration',
+                fill: false,
+                data: ['0','4','0','0','0','0','0','0'],
+                backgroundColor: 'rgba(83, 146, 255,0.5)',
+                borderColor: 'rgba(83, 146, 255, 1)',
+            }]
+        }
+        const durationOptions = {
+            responsive: true,
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value > 0) {
+                            return value;
+                        } else {
+                            return '';
+                        }
+                    },
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: (data) => {
+                            return data.parsed.y + ' tests'
+                        }
+                    },
+                },
+            },
+        }
+
+        const durationChart = new Chart(durationChartCtx, {
+            type: 'bar',
+            data: durationData,
+            options: durationOptions
+        });
+
+        function durationClickHandler(click) {
+            const points = durationChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(durationDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+
+        durationChartCtx.onclick = durationClickHandler;
+    </script>
+    <!-- END DURATION CHART -->
+</body>
+</html>

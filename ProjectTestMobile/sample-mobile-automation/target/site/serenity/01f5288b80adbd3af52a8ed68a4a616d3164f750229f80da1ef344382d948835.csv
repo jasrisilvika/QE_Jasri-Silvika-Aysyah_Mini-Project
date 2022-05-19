@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Buy","Buy","SUCCESS","2022-05-16T22:48:43.7463777+07:00[Asia/Bangkok]","0.0","116.9"
+"Login","Login","SUCCESS","2022-05-16T22:50:40.678724+07:00[Asia/Bangkok]","0.0","215.36"
+"Login","Logout","SUCCESS","2022-05-16T22:54:16.0522904+07:00[Asia/Bangkok]","0.0","31.4"
+"Register","Register scenario","SUCCESS","2022-05-16T22:54:47.4691605+07:00[Asia/Bangkok]","0.0","261.16"

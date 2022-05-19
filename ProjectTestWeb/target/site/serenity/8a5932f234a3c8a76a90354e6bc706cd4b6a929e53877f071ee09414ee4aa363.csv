@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Cart","Add and remove product","SUCCESS","2022-05-17T17:53:55.4435891+07:00[Asia/Bangkok]","0.0","24.7"
+"Detail","Open detail product","SUCCESS","2022-05-17T17:54:20.1880407+07:00[Asia/Bangkok]","0.0","30.33"
+"Login","Login Scenario","SUCCESS","2022-05-17T17:54:50.5405656+07:00[Asia/Bangkok]","0.0","41.71"
+"Logout","Logout","SUCCESS","2022-05-17T17:55:32.2773127+07:00[Asia/Bangkok]","0.0","8.4"
+"Order","Order product without login","SUCCESS","2022-05-17T17:55:40.7017866+07:00[Asia/Bangkok]","0.0","6.96"
+"Order","Order product with login","SUCCESS","2022-05-17T17:55:48.3793086+07:00[Asia/Bangkok]","0.0","9.57"
+"Register","Register Scenario","SUCCESS","2022-05-17T17:55:57.967669+07:00[Asia/Bangkok]","0.0","30.56"

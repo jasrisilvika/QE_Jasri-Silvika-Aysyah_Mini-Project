@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="categories" skipped="0" tests="3" time="5.11" timestamp="2022-05-17 05:18:16"><testcase name="GET - As an admin I have to be able to get all categories"/><testcase name="POST - As an admin I have to be able to create a new category"/></testsuite>

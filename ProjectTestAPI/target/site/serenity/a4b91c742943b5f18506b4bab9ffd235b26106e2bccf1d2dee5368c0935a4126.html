@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>As an admin I have to be able to give a rating to the product</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<!-- ImgPreview -->
+<script src="scripts/imgpreview.full.jquery.js" type="text/javascript"></script>
+</head>
+
+<body class="results-page">
+
+
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs">
+            <a href="index.html" class="breadcrumbs">Home</a>
+
+        > As an admin I have to be able to give a rating to the product
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 17-05-2022 17:18</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                                <div>
+                                    <h3 class="discreet-story-header">
+                                        <i class="fa fa-2x fa-comments-o"></i>
+                                        <span class="story-header-title">Rating</span>
+                                    </h3>
+                                </div>
+
+                        </td>
+                        <td valign="top">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">
+                                    As an admin I have to be able to give a rating to the product
+                                        <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+        <div class="story-title">
+            <h3 class="story-header">Scenario Outline</h3>
+
+            <div class="scenario">Given I set an endpoint for add rating &lt;id&gt;<br>When I request add rating &lt;star&gt; &lt;id&gt; "&lt;tok&gt;"<br>Then I validate the status code &lt;status_code&gt;<br>And I validate the "&lt;result&gt;" after add rating &lt;star&gt;</div>
+
+        </div>
+
+    <div id="beforetable"></div>
+
+
+            <h3 class="story-header">Examples:&nbsp;</h3>
+                <div class="requirementNarrative"></div>
+
+
+                <p class="example-tag">
+                </p>
+
+            <div class="example-table test-report">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                            <th>Id</th>
+                            <th>Star</th>
+                            <th>Tok</th>
+                            <th>Status Code</th>
+                            <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#0">1</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#0">1789</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#0">1</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#0">yes</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#0">200</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#0">success</a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#1">2</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#1">1655</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#1">2</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#1">yes</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#1">200</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#1">success</a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#2">3</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#2">1677</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#2">3</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#2">yes</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#2">200</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#2">success</a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#3">4</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#3">1587</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#3">4</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#3">yes</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#3">200</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#3">success</a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#4">5</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#4">1598</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#4">5</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#4">yes</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#4">200</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#4">success</a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#5">6</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#5">1578</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#5">9</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#5">yes</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#5">500</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#5">ERROR: new row for relation \"ratings\" violates check constraint \"ratings_count_check\" (SQLSTATE 23514)</a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#6">7</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#6">165</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#6">5</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#6">yes</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#6">500</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#6">record not found</a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="test-SUCCESS"><a href="#7">8</a></td>
+                                <td class="test-SUCCESS"><a
+                                            href="#7">868</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#7">1</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#7">no</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#7">401</a>
+                                </td>
+                                <td class="test-SUCCESS"><a
+                                            href="#7">unauthorized</a>
+                                </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+    <div id="tablecontents">
+        <div>
+            <table class="step-table">
+                <tr class="step-titles">
+                    <th width="65">
+                    </th>
+                    <th class="step-description-column greentext">
+                        Steps
+                    </th>
+
+                    <th width="130" class="greentext">Outcome</th>
+                    <th width="100" class="greentext"><i title="Duration" class="far fa-clock"></i></th>
+                </tr>
+                <tr class="step-table-separator">
+                    <td colspan="5"></td>
+                </tr>
+
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection0 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                1: As an admin I have to be able to give a rating to the product ({id=1789, star=1, tok=yes, status_code=200, result=success})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">498ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="0-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection0-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 1789
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">010ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection0-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="0-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="0-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection0-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 1 1789 "yes"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">292ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection0-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="0-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection0-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">266ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection0-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/1789/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-7">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/1789/ratings</p>
+                                        <p>Status code: 200</p>
+                                        <p>Content Type: text/plain</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsbmFtZSI6Imphc3JpIHZpa2EiLCJFbWFpbCI6Imphc3JpdmlrYUBnbWFpbC5jb20ifQ.Ut0F3OmBONiSAJlaqzpMBRJDJuoeVzCCeNL39n556UY<br>Accept=*/*<br>Content-Type=text/plain; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre>{&quot;count&quot;:1}</pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:21 GMT<br>Content-Type: application/json<br>Content-Length: 187<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;data&quot;: {<br>        &quot;ID&quot;: 1789,<br>        &quot;Name&quot;: &quot;Product Firga&quot;,<br>        &quot;Description&quot;: &quot;&quot;,<br>        &quot;Price&quot;: 89999,<br>        &quot;Ratings&quot;: 1,<br>        &quot;Categories&quot;: [<br>            {<br>                &quot;ID&quot;: 3,<br>                &quot;Name&quot;: &quot;alat&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            },<br>            {<br>                &quot;ID&quot;: 6,<br>                &quot;Name&quot;: &quot;kesehatan&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            }<br>        ]<br>    }<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="0-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection0-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 200
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">011ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection0-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="0-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="0-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection0-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "success" after add rating 1
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">057ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection0-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="0-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">048ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection1 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                2: As an admin I have to be able to give a rating to the product ({id=1655, star=2, tok=yes, status_code=200, result=success})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">405ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection1-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 1655
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">040ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="1-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="1-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection1-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 2 1655 "yes"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">278ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection1-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="1-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection1-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">265ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection1-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="1-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="1-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/1655/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-18">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-18">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/1655/ratings</p>
+                                        <p>Status code: 200</p>
+                                        <p>Content Type: text/plain</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsbmFtZSI6Imphc3JpIHZpa2EiLCJFbWFpbCI6Imphc3JpdmlrYUBnbWFpbC5jb20ifQ.Ut0F3OmBONiSAJlaqzpMBRJDJuoeVzCCeNL39n556UY<br>Accept=*/*<br>Content-Type=text/plain; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre>{&quot;count&quot;:2}</pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:22 GMT<br>Content-Type: application/json<br>Content-Length: 183<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;data&quot;: {<br>        &quot;ID&quot;: 1655,<br>        &quot;Name&quot;: &quot;Laptop&quot;,<br>        &quot;Description&quot;: &quot;&quot;,<br>        &quot;Price&quot;: 20400000,<br>        &quot;Ratings&quot;: 2,<br>        &quot;Categories&quot;: [<br>            {<br>                &quot;ID&quot;: 3,<br>                &quot;Name&quot;: &quot;alat&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            },<br>            {<br>                &quot;ID&quot;: 6,<br>                &quot;Name&quot;: &quot;kesehatan&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            }<br>        ]<br>    }<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="1-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection1-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 200
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">011ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection1-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="1-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="1-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection1-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "success" after add rating 2
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">040ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection1-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="1-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">032ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection2 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                3: As an admin I have to be able to give a rating to the product ({id=1677, star=3, tok=yes, status_code=200, result=success})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">285ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="2-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection2-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 1677
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">022ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection2-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="2-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="2-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection2-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 3 1677 "yes"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">203ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection2-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="2-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection2-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">193ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection2-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="2-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">001ms</span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="2-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/1677/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-29">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-29">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/1677/ratings</p>
+                                        <p>Status code: 200</p>
+                                        <p>Content Type: text/plain</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsbmFtZSI6Imphc3JpIHZpa2EiLCJFbWFpbCI6Imphc3JpdmlrYUBnbWFpbC5jb20ifQ.Ut0F3OmBONiSAJlaqzpMBRJDJuoeVzCCeNL39n556UY<br>Accept=*/*<br>Content-Type=text/plain; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre>{&quot;count&quot;:3}</pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:22 GMT<br>Content-Type: application/json<br>Content-Length: 195<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;data&quot;: {<br>        &quot;ID&quot;: 1677,<br>        &quot;Name&quot;: &quot;Tensi Darah Elektrik&quot;,<br>        &quot;Description&quot;: &quot;&quot;,<br>        &quot;Price&quot;: 240000,<br>        &quot;Ratings&quot;: 3,<br>        &quot;Categories&quot;: [<br>            {<br>                &quot;ID&quot;: 3,<br>                &quot;Name&quot;: &quot;alat&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            },<br>            {<br>                &quot;ID&quot;: 6,<br>                &quot;Name&quot;: &quot;kesehatan&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            }<br>        ]<br>    }<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="2-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection2-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 200
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">008ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection2-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="2-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">001ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="2-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection2-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "success" after add rating 3
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">029ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection2-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="2-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">024ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection3 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                4: As an admin I have to be able to give a rating to the product ({id=1587, star=4, tok=yes, status_code=200, result=success})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">259ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="3-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection3-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 1587
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">007ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection3-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="3-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="3-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection3-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 4 1587 "yes"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">196ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection3-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="3-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection3-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">194ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection3-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="3-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="3-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/1587/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-40">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-40">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/1587/ratings</p>
+                                        <p>Status code: 200</p>
+                                        <p>Content Type: text/plain</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsbmFtZSI6Imphc3JpIHZpa2EiLCJFbWFpbCI6Imphc3JpdmlrYUBnbWFpbC5jb20ifQ.Ut0F3OmBONiSAJlaqzpMBRJDJuoeVzCCeNL39n556UY<br>Accept=*/*<br>Content-Type=text/plain; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre>{&quot;count&quot;:4}</pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:22 GMT<br>Content-Type: application/json<br>Content-Length: 183<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;data&quot;: {<br>        &quot;ID&quot;: 1587,<br>        &quot;Name&quot;: &quot;Laptop&quot;,<br>        &quot;Description&quot;: &quot;&quot;,<br>        &quot;Price&quot;: 20400000,<br>        &quot;Ratings&quot;: 4,<br>        &quot;Categories&quot;: [<br>            {<br>                &quot;ID&quot;: 3,<br>                &quot;Name&quot;: &quot;alat&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            },<br>            {<br>                &quot;ID&quot;: 6,<br>                &quot;Name&quot;: &quot;kesehatan&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            }<br>        ]<br>    }<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="3-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection3-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 200
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">010ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection3-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="3-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="3-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection3-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "success" after add rating 4
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">032ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection3-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="3-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">029ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="4"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection4 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                5: As an admin I have to be able to give a rating to the product ({id=1598, star=5, tok=yes, status_code=200, result=success})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">234ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection4" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="4-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection4-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 1598
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">009ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection4-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="4-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="4-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection4-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 5 1598 "yes"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">183ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection4-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="4-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection4-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">180ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection4-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="4-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="4-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/1598/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-51">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-51">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/1598/ratings</p>
+                                        <p>Status code: 200</p>
+                                        <p>Content Type: text/plain</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsbmFtZSI6Imphc3JpIHZpa2EiLCJFbWFpbCI6Imphc3JpdmlrYUBnbWFpbC5jb20ifQ.Ut0F3OmBONiSAJlaqzpMBRJDJuoeVzCCeNL39n556UY<br>Accept=*/*<br>Content-Type=text/plain; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre>{&quot;count&quot;:5}</pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:23 GMT<br>Content-Type: application/json<br>Content-Length: 190<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;data&quot;: {<br>        &quot;ID&quot;: 1598,<br>        &quot;Name&quot;: &quot;Tensi Darah Elektrik&quot;,<br>        &quot;Description&quot;: &quot;&quot;,<br>        &quot;Price&quot;: 0,<br>        &quot;Ratings&quot;: 5,<br>        &quot;Categories&quot;: [<br>            {<br>                &quot;ID&quot;: 3,<br>                &quot;Name&quot;: &quot;alat&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            },<br>            {<br>                &quot;ID&quot;: 6,<br>                &quot;Name&quot;: &quot;kesehatan&quot;,<br>                &quot;Description&quot;: &quot;&quot;<br>            }<br>        ]<br>    }<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="4-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection4-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 200
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">009ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection4-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="4-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="4-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection4-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "success" after add rating 5
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">020ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection4-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="4-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">018ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="5"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection5 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                6: As an admin I have to be able to give a rating to the product ({id=1578, star=9, tok=yes, status_code=500, result=ERROR: new row for relation \"ratings\" violates check constraint \"ratings_count_check\" (SQLSTATE 23514)})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">259ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection5" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="5-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection5-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 1578
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">006ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection5-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="5-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="5-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection5-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 9 1578 "yes"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">213ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection5-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="5-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection5-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">210ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection5-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="5-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="5-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/1578/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-62">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-62">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/1578/ratings</p>
+                                        <p>Status code: 500</p>
+                                        <p>Content Type: text/plain</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsbmFtZSI6Imphc3JpIHZpa2EiLCJFbWFpbCI6Imphc3JpdmlrYUBnbWFpbC5jb20ifQ.Ut0F3OmBONiSAJlaqzpMBRJDJuoeVzCCeNL39n556UY<br>Accept=*/*<br>Content-Type=text/plain; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre>{&quot;count&quot;:9}</pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:23 GMT<br>Content-Type: application/json<br>Content-Length: 119<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;error&quot;: &quot;ERROR: new row for relation \&quot;ratings\&quot; violates check constraint \&quot;ratings_count_check\&quot; (SQLSTATE 23514)&quot;<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="5-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection5-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 500
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">010ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection5-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="5-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="5-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection5-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection5-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "ERROR: new row for relation \"ratings\" violates check constraint \"ratings_count_check\" (SQLSTATE 23514)" after add rating 9
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">019ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection5-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="5-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">015ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="6"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection6 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                7: As an admin I have to be able to give a rating to the product ({id=165, star=5, tok=yes, status_code=500, result=record not found})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">515ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection6" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="6-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection6-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 165
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">005ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection6-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="6-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="6-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection6-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 5 165 "yes"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">471ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection6-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="6-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection6-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">468ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection6-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="6-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="6-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/165/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-73">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-73">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/165/ratings</p>
+                                        <p>Status code: 500</p>
+                                        <p>Content Type: text/plain</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsbmFtZSI6Imphc3JpIHZpa2EiLCJFbWFpbCI6Imphc3JpdmlrYUBnbWFpbC5jb20ifQ.Ut0F3OmBONiSAJlaqzpMBRJDJuoeVzCCeNL39n556UY<br>Accept=*/*<br>Content-Type=text/plain; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre>{&quot;count&quot;:5}</pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:23 GMT<br>Content-Type: application/json<br>Content-Length: 29<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;error&quot;: &quot;record not found&quot;<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="6-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection6-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 500
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">010ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection6-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="6-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="6-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection6-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection6-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "record not found" after add rating 5
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">018ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection6-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="6-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">015ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="50" class="step-icon">
+                            <a name="7"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection7 success-icon"
+                                       style="margin-left: 20px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7')"
+                                   style="display:block;">
+                                    <span class="top-level-step">
+                                                8: As an admin I have to be able to give a rating to the product ({id=868, star=1, tok=no, status_code=401, result=unauthorized})
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                        <td width="100"><span class="top-level-step">215ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection7" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="7-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection7-0 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Given I set an endpoint for add rating 868
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">007ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection7-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="7-0-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">001ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="7-1"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-1')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection7-1 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-1')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                When I request add rating 1 868 "no"
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">176ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection7-1" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="7-1-0"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-1-0')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection7-1-0 success-icon"
+                                       style="margin-left: 60px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-1-0')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                I request add rating {int} {int} {string}
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">174ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection7-1-0" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="7-1-0-0"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I set an endpoint for add rating {int}
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="7-1-0-1"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                POST https://be-qa.alta.id/api/products/868/ratings
+                                        </span>
+                                <span class="evidence">
+                                        <span class="piece-of-evidence">
+                    <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-84">
+                            REST Query
+                        </button>
+                    </span>
+                    <!-- Modal -->
+                    <div class="rest-query-details">
+                        <div class="collapse multi-collapse" id="restModal-REST-84">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Response</h4>
+                                        <p>URL: https://be-qa.alta.id/api/products/868/ratings</p>
+                                        <p>Status code: 401</p>
+                                        <p>Content Type: application/x-www-form-urlencoded</p>
+                                        <h4>Request Headers</h4>
+                                        <pre>Accept=*/*<br>Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1</pre>
+                                        <h4>Content Body</h4>
+                                        <pre></pre>
+                                        <h4>Request Cookies</h4>
+                                        <pre></pre>
+                                        <h4>Response Headers</h4>
+                                        <pre>Server: nginx/1.14.2<br>Date: Tue, 17 May 2022 10:18:24 GMT<br>Content-Type: application/json<br>Content-Length: 25<br>Connection: keep-alive</pre>
+                                    <h4>Response Body</h4>
+                                        <pre>{<br>    &quot;error&quot;: &quot;unauthorized&quot;<br>}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        </span>
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="7-2"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-2')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection7-2 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-2')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                Then I validate the status code 401
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">008ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection7-2" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="7-2-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the status code &lt;status_code&gt;
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step"></span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="70" class="step-icon">
+                            <a name="7-3"></a>
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-3')"
+                                   style="display:block">
+                                    <i class="fa fa-plus-square-o imgstepSection7-3 success-icon"
+                                       style="margin-left: 40px; float:left; padding-right:5px"></i>
+                                </a>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                <a href="javaScript:void(0)" onClick="toggleDiv('stepSection7-3')"
+                                   style="display:block;">
+                                    <span class="nested-step">
+                                                And I validate the "unauthorized" after add rating 1
+                                        </span>
+                                </a>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-step">013ms</span></td>
+                    </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table id="stepSection7-3" class="step-table-nested" style="display:none;">
+                    <tr class="test-SUCCESS">
+
+                        <td width="90" class="step-icon">
+                            <a name="7-3-0"></a>
+                                <span style="margin-left: 60px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                I validate the {string} after add rating
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">012ms</span></td>
+                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                <tr class="test-SUCCESS">
+                        <td colspan="2"></td>
+                    <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>2.78s</em></span></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div id="beforefooter"></div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="version">Serenity BDD version 2.6.0</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function toggleDiv(divId) {
+            $("#" + divId).toggle();
+            var imgsrc = $(".img" + divId).attr('src');
+            if (imgsrc == 'images/plus.png') {
+                $(".img" + divId).attr("src", function () {
+                    return "images/minus.png";
+                });
+
+            } else {
+                $(".img" + divId).attr("src", function () {
+                    return "images/plus.png";
+                });
+            }
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+
+        $(document).ready(function () {
+            $('img.screenshot').imgPreview({
+                imgCSS: {
+                    width: '500px'
+                },
+                distanceFromCursor: {top: 10, left: -200}
+            });
+        });
+
+        //]]>
+    </script>
+    <div id="imgPreviewContainer" style="position: absolute; top: 612px; left: 355px; display: none; " class=""><img
+                src="" style="display: none; "></div>
+    <div id="imgPreviewContainer2" style="position: absolute; top: 925px; left: 320px; display: none; " class="">
+        <img style="width: 200px; display: none; " src=""></div>
+    <div id="imgPreviewWithStyles" style="position: absolute; top: 1272px; left: 321px; display: none; " class="">
+        <img style="height: 200px; opacity: 1; display: none; " src=""></div>
+    <div id="imgPreviewWithStyles2" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+    <div id="imgPreviewWithStyles3" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+
+</div>
+</body>
+</html>

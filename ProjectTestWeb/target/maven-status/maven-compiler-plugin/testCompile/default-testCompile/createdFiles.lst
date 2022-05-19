@@ -1,0 +1,14 @@
+starter\pages\CartPage.class
+starter\pages\HomePage.class
+Utils\General.class
+starter\stepdefinitions\LoginSteps.class
+starter\pages\DetailPage.class
+CucumberTestSuite.class
+starter\pages\LoginPage.class
+starter\stepdefinitions\CartSteps.class
+starter\stepdefinitions\DetailSteps.class
+starter\stepdefinitions\OrderSteps.class
+starter\stepdefinitions\LogoutSteps.class
+starter\stepdefinitions\RegisterSteps.class
+starter\pages\RegisterPage.class
+starter\pages\OrderPage.class
