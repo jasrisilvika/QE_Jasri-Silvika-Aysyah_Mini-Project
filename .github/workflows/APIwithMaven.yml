@@ -2,14 +2,14 @@ name: API Automation JAVA with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 defaults:
   run:
     working-directory: ProjectTestAPI
-    
+
 jobs:
   build:
     name: build
