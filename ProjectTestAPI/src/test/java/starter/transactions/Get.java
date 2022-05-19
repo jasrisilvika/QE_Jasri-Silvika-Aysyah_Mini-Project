@@ -40,8 +40,8 @@ public class Get {
     public void iValidateTheAfterGetAllTransactions(String message) {
         if (message.equals("success")){
             SerenityRest.then().body(notNullValue());
-            SerenityRest.then().body("data[0].Product", equalTo("Durian Jatuh"));
-            SerenityRest.then().body("data[1].Product", equalTo("Tensi Darah Elektrik"));
+            SerenityRest.then().body("data[0].Product", equalTo("Termometer"));
+            SerenityRest.then().body("data[1].Product", equalTo("Handphone"));
         } else {
             SerenityRest.then().body("error", equalTo("unauthorized"));
         }
