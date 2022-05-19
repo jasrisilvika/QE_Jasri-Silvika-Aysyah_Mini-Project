@@ -18,7 +18,7 @@ public class DetailPage extends PageObject {
     }
 
     private By priceTag(int product){
-        return By.xpath("//*[@class = 'col-md-4 col-lg-3 col-6']["+ product +"]//div[3]//div//div[2]//b");
+        return By.xpath("//*[@class = 'col-md-4 col-lg-3 col-6']["+ product +"]//div[3]//div[1]//b");
     }
 
     private By nameTagDetail(){

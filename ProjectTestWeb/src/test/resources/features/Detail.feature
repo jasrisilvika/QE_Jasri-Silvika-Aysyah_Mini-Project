@@ -12,5 +12,5 @@ Feature: Detail
     |product|
     |11     |
     |24     |
-    |30     |
+    |35     |
     |1     |
