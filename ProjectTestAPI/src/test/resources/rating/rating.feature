@@ -20,13 +20,13 @@ Feature: Rating
     And I validate the "<result>" after add rating <star>
     Examples:
     |id|star|tok|status_code|result|
-    |1789|1  |yes|200        |success|
-    |1655|2  |yes|200        |success|
-    |1677|3  |yes|200        |success|
-    |1587|4  |yes|200        |success|
-    |1598|5  |yes|200        |success|
+    |2356|1  |yes|200        |success|
+    |2245|2  |yes|200        |success|
+    |2366|3  |yes|200        |success|
+    |2257|4  |yes|200        |success|
+    |1891|5  |yes|200        |success|
     |1578|9  |yes|500        |ERROR: new row for relation \"ratings\" violates check constraint \"ratings_count_check\" (SQLSTATE 23514)|
     |165|5  |yes|500        |record not found                                                                                          |
-    |868|1  |no |401        |unauthorized                                                                                              |
+    |868|1  |no |401        |unauthorized                                                                                               |
 
 
